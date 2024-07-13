@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.idev13.firstjobapp.company.Company;
+
 @RestController
 @RequestMapping("/jobs")
 public class JobController {
@@ -32,7 +34,7 @@ public class JobController {
     @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job) {
         jobService.createJob(job);
-
+        Company c = job.getCompany();
         return new ResponseEntity<>("Job added successfully", HttpStatus.CREATED);
     }
 
