@@ -1,5 +1,9 @@
 package com.idev13.firstjobapp.review;
 
-public interface ReviewService {
+import java.util.List;
 
+public interface ReviewService {
+    List<Review> getAllReviews(Long companyId);
+
+    boolean addReview(Long companyId, Review review);
 }
